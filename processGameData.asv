@@ -1,0 +1,9 @@
+function processGameData(dataDir,saveDir)
+vDir = dir(fullfile(dataDir,'*_2024*'));
+
+for f = 1:length(vDir)
+    cDir = [dataDir vDir(f).name '\AbstractColor3\'];
+    subjectData = convertJSON2MatTable(cDir);
+    save([saveDir vDir(f).name '.mat'],"subjectData")
+end
+
